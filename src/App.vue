@@ -124,7 +124,9 @@ const visibleTasks = computed(() => {
   }
 
   if (subCategoryFilter.value !== 'all') {
-    result = result.filter((task) => task.subCategory === subCategoryFilter.value);
+    result = result.filter(
+      (task) => task.subCategory === subCategoryFilter.value
+    );
   }
 
   if (keyword.value.trim()) {
@@ -427,7 +429,9 @@ watch(categoryFilter, (category) => {
               <h3>{{ task.title }}</h3>
               <p v-if="task.detail">{{ task.detail }}</p>
               <div class="meta">
-                <span class="chip category">{{ categoryText(task.category) }}</span>
+                <span class="chip category">{{
+                  categoryText(task.category)
+                }}</span>
                 <span class="chip sub-category">{{ task.subCategory }}</span>
                 <span class="chip status" :data-status="task.status">
                   {{ statusText(task.status) }}
